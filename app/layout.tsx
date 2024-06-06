@@ -4,12 +4,15 @@ import "./globals.css";
 import {
   ClerkProvider,
   SignedOut,
-  SignInButton,
   SignedIn,
+  SignIn,
+  SignInButton,
 } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Dashboard } from "@/components/dashboard";
+import { SignInCard } from "@/components/sign-in-card";
+import { dark } from "@clerk/themes";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en" suppressHydrationWarning>
         <body
           className={cn(
@@ -42,7 +45,11 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <SignedOut>
-              <SignInButton />
+              <div className="flex h-screen flex-col items-center justify-center">
+                <SignInCard>
+                  <SignInButton />
+                </SignInCard>
+              </div>
             </SignedOut>
             <SignedIn>
               <main>

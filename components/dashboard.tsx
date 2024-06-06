@@ -22,6 +22,8 @@ import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "./toggle-mode";
+import { link } from "fs";
+import NavLinks from "./nav-links";
 
 export async function Dashboard({ children }: { children: React.ReactNode }) {
   return (
@@ -33,8 +35,7 @@ export async function Dashboard({ children }: { children: React.ReactNode }) {
               href="https://www.lonepeakdrillteam.com"
               className="flex items-center gap-2 font-semibold"
             >
-              <Package2 className="h-6 w-6" />
-              <span className="text-xl">Chevaliers Parent Portal</span>
+              <Home className="h-6 w-6" />
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
               <Bell className="h-4 w-4" />
@@ -43,58 +44,7 @@ export async function Dashboard({ children }: { children: React.ReactNode }) {
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-              <Link
-                href="/"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <CalendarDays className="h-4 w-4" />
-                Calendars
-              </Link>
-              <Link
-                href="/fee-schedule"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <HandCoins className="h-4 w-4" />
-                Fee Schedule
-                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                  6
-                </Badge>
-              </Link>
-              <Link
-                href="/nationals"
-                className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
-              >
-                <PlaneTakeoff className="h-4 w-4" />
-                Nationals{" "}
-              </Link>
-              <Link
-                href="/family-directory"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <Users className="h-4 w-4" />
-                Drill Family Directory
-              </Link>
-              <Link
-                href="/summer-schedule"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <LineChart className="h-4 w-4" />
-                2024 Summer Schedule
-              </Link>
-              <Link
-                href="/register"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <ClipboardPenLine className="h-4 w-4" />
-                Register My Athlete
-              </Link>
-              <Link
-                href="/competition-info"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <LineChart className="h-4 w-4" />
-                Competition Info
-              </Link>
+              <NavLinks />
             </nav>
           </div>
         </div>
@@ -121,58 +71,7 @@ export async function Dashboard({ children }: { children: React.ReactNode }) {
                   <Package2 className="h-6 w-6" />
                   <span className="sr-only">Acme Inc</span>
                 </Link>
-                <Link
-                  href="/"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Calendars
-                </Link>
-                <Link
-                  href="/fee-schedule"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                  Fee Schedule
-                  <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                    6
-                  </Badge>
-                </Link>
-                <Link
-                  href="/nationals"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Package className="h-5 w-5" />
-                  Nationals
-                </Link>
-                <Link
-                  href="/family-directory"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Users className="h-5 w-5" />
-                  Drill Family Directory
-                </Link>
-                <Link
-                  href="/summer-schedule"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <LineChart className="h-5 w-5" />
-                  2024 Summer Schedule
-                </Link>
-                <Link
-                  href="/register"
-                  className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-                >
-                  <LineChart className="h-4 w-4" />
-                  Register My Athlete
-                </Link>
-                <Link
-                  href="/competition-info"
-                  className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-                >
-                  <LineChart className="h-4 w-4" />
-                  Competition Info
-                </Link>
+                <NavLinks />
               </nav>
             </SheetContent>
           </Sheet>
@@ -188,6 +87,8 @@ export async function Dashboard({ children }: { children: React.ReactNode }) {
               </div>
             </form>
           </div>
+
+          <span className="text-xl">Chevaliers Parent Portal</span>
           <UserButton />
 
           <ModeToggle />

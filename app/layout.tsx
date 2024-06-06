@@ -9,6 +9,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -34,15 +35,19 @@ export default function RootLayout({
             fontSans.variable
           )}
         >
-          <header>
-            <UserButton />
-          </header>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <main>{children}</main>
-          </SignedIn>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <main>{children}</main>
+            </SignedIn>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

@@ -6,10 +6,10 @@ import {
   SignedOut,
   SignInButton,
   SignedIn,
-  UserButton,
 } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Dashboard } from "@/components/dashboard";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -32,7 +32,7 @@ export default function RootLayout({
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
+            fontSans.variable,
           )}
         >
           <ThemeProvider
@@ -45,7 +45,9 @@ export default function RootLayout({
               <SignInButton />
             </SignedOut>
             <SignedIn>
-              <main>{children}</main>
+              <main>
+                <Dashboard children={children} />
+              </main>
             </SignedIn>
           </ThemeProvider>
         </body>

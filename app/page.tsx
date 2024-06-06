@@ -1,5 +1,9 @@
 import { Dashboard } from "@/components/dashboard";
 
 export default function Home() {
-  return <Dashboard />;
+  return (
+    <div className="flex h-screen flex-col items-center justify-center">
+      <div>Calendars</div>
+    </div>
+  );
 }

@@ -9,22 +9,25 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { SignInButton } from "@clerk/nextjs";
 
-export function SignInCard({ children }: { children: React.ReactNode }) {
+export function SignInCard() {
   return (
-    <Card className="w-[350px]">
-      <CardHeader>
-        <CardTitle>Parent Portal</CardTitle>
-        <CardDescription>
-          Please sign in to continue to the parent portal.
-        </CardDescription>
-      </CardHeader>
-      <CardContent></CardContent>
-      <CardFooter className="flex justify-between">
-        <Button className="w-full">{children}</Button>
-      </CardFooter>
-    </Card>
+    <>
+      <Card className="">
+        <CardHeader>
+          <CardTitle>Lone Peak Chevaliers Parent Portal</CardTitle>
+          <CardDescription>
+            Please sign in to continue to the parent portal.
+          </CardDescription>
+        </CardHeader>
+        <CardContent></CardContent>
+        <CardFooter className="flex justify-center">
+          <Button className="">
+            <SignInButton />
+          </Button>
+        </CardFooter>
+      </Card>
+    </>
   );
 }

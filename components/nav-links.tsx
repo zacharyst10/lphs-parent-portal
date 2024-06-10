@@ -10,6 +10,8 @@ import {
   HandCoins,
   PlaneTakeoff,
   ClipboardPenLine,
+  Trophy,
+  Sun,
 } from "lucide-react";
 
 export default function NavLinks() {
@@ -39,7 +41,7 @@ export default function NavLinks() {
     {
       title: "Summer Schedule",
       href: "/summer-schedule",
-      icon: <LineChart className="h-4 w-4" />,
+      icon: <Sun className="h-4 w-4" />,
     },
     {
       title: "Register My Athlete",
@@ -49,7 +51,7 @@ export default function NavLinks() {
     {
       title: "Competition Info",
       href: "/competition-info",
-      icon: <LineChart className="h-4 w-4" />,
+      icon: <Trophy className="h-4 w-4" />,
     },
   ];
 

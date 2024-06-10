@@ -46,9 +46,7 @@ export default function RootLayout({
           >
             <SignedOut>
               <div className="flex h-screen flex-col items-center justify-center">
-                <SignInCard>
-                  <SignInButton />
-                </SignInCard>
+                <SignInCard />
               </div>
             </SignedOut>
             <SignedIn>

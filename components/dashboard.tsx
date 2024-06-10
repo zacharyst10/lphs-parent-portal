@@ -1,28 +1,11 @@
 import Link from "next/link";
-import {
-  Bell,
-  Home,
-  LineChart,
-  Menu,
-  Package,
-  Package2,
-  Search,
-  ShoppingCart,
-  Users,
-  CalendarDays,
-  HandCoins,
-  PlaneTakeoff,
-  ClipboardPenLine,
-} from "lucide-react";
+import { Bell, Home, Menu, Package2 } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "./toggle-mode";
-import { link } from "fs";
 import NavLinks from "./nav-links";
 
 export async function Dashboard({ children }: { children: React.ReactNode }) {

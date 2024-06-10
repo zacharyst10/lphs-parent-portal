@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,6 +35,8 @@ import sonntag from "@/public/families/sonntag-family.jpg";
 import taylor from "@/public/families/taylor-family.jpg";
 import wallace from "@/public/families/wallace-family.jpg";
 import ward from "@/public/families/ward-family.png";
+import { Search } from "lucide-react";
+import { useState } from "react";
 
 const families = [
   {
@@ -204,38 +207,62 @@ const families = [
 ];
 
 export default function DialogDemo() {
-  return (
-    <div className="grid grid-cols-4 items-center gap-4 p-4">
-      {families.map((family) => (
-        <div key={family.family}>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Image
-                src={family.image}
-                alt={family.family}
-                placeholder="blur"
-                className="h-64 w-64 rounded-2xl object-cover"
-              />
-            </DialogTrigger>
-            <DialogContent className="">
-              <DialogHeader>
-                <DialogTitle>{family.family}</DialogTitle>
-                <DialogDescription className="flex flex-col gap-2">
-                  <div>{family.dad}</div>
-                  <div>{family.mom}</div>
-                  <div>{family.dancer}</div>
-                </DialogDescription>
-              </DialogHeader>
+  const [searchTerm, setSearchTerm] = useState("");
 
-              <Image
-                className="h-full w-full"
-                src={family.image}
-                alt={family.family}
-              />
-            </DialogContent>
-          </Dialog>
+  const filteredFamilies = families.filter(
+    (family) =>
+      family.family.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      family.mom.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      family.dad.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      family.dancer.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
+  return (
+    <div>
+      <form className="p-5">
+        <div className="relative">
+          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+          <Input
+            type="search"
+            placeholder="Search families..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full appearance-none bg-background pl-8 shadow-none md:w-2/3 lg:w-1/3"
+          />
         </div>
-      ))}
+      </form>
+      <div className="grid grid-cols-4 items-center gap-4 p-4">
+        {filteredFamilies.map((family) => (
+          <div key={family.family}>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Image
+                  src={family.image}
+                  alt={family.family}
+                  placeholder="blur"
+                  className="h-64 w-64 rounded-2xl object-cover"
+                />
+              </DialogTrigger>
+              <DialogContent className="">
+                <DialogHeader>
+                  <DialogTitle>{family.family}</DialogTitle>
+                  <DialogDescription className="flex flex-col gap-2">
+                    <div>{family.dad}</div>
+                    <div>{family.mom}</div>
+                    <div>{family.dancer}</div>
+                  </DialogDescription>
+                </DialogHeader>
+
+                <Image
+                  className="h-full w-full"
+                  src={family.image}
+                  alt={family.family}
+                />
+              </DialogContent>
+            </Dialog>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -14,7 +14,7 @@ import { SignInButton } from "@clerk/nextjs";
 export function SignInCard() {
   return (
     <>
-      <Card className="">
+      <Card>
         <CardHeader>
           <CardTitle>Lone Peak Chevaliers Parent Portal</CardTitle>
           <CardDescription>
@@ -23,7 +23,7 @@ export function SignInCard() {
         </CardHeader>
         <CardContent></CardContent>
         <CardFooter className="flex justify-center">
-          <Button className="">
+          <Button>
             <SignInButton />
           </Button>
         </CardFooter>

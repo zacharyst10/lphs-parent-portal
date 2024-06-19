@@ -1,15 +1,15 @@
 export default function CompetitionInfoPage() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto py-20">
       <div className="flex flex-wrap">
         <div className="w-full md:w-1/2">
-          <div className="h-full rounded-md border border-gray-300 bg-gray-100 p-6">
+          <div className="h-full rounded-md border border-gray-300 bg-primary-foreground p-6">
             <div className="mb-4"></div>
             <div className="flex flex-col">
-              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                 Mustang classic at Herriman High School
               </dt>
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-primary">
                 <p className="flex-auto font-bold">
                   Solo Competition - Friday, Dec 1st
                 </p>
@@ -30,7 +30,7 @@ export default function CompetitionInfoPage() {
                   <li>Drill Down & Awards - 3:50pm</li>
                 </ul>
 
-                <p className="mt-6">
+                <div className="mt-6">
                   <p>
                     <a
                       target="_blank"
@@ -51,24 +51,24 @@ export default function CompetitionInfoPage() {
                       <span aria-hidden="true">→</span>
                     </a>
                   </p>
-                  <p className="mt-3 flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                  <p className="mt-3 flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                     Admission for Friday and Saturday will be $10 per person
                     with 5 and under free.
                   </p>
-                </p>
+                </div>
               </dd>
             </div>
           </div>
         </div>
 
         <div className="w-full md:w-1/2">
-          <div className="h-full rounded-md border border-gray-300 bg-gray-100 p-6 md:border">
+          <div className="h-full rounded-md border border-gray-300 bg-primary-foreground p-6 md:border">
             <div className="mb-4"></div>
             <div className="flex flex-col">
-              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                 Showcase at UVU at the UCCU Center
               </dt>
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-primary">
                 <p className="flex-auto font-bold">
                   Solo competition - Friday, Dec 15th
                 </p>
@@ -76,7 +76,7 @@ export default function CompetitionInfoPage() {
                   <li>Cate Arnold - 2:45pm</li>
                   <li>Kaitlyn Sonntag - 8:00pm</li>
                 </ul>
-                <p>
+                <div>
                   <a
                     target="_blank"
                     href="https://docs.google.com/spreadsheets/d/1vaFqwDtl723XjR-jCnY6oPuuBF3q5dbc_TWV3sEAePo/edit#gid=0"
@@ -84,7 +84,7 @@ export default function CompetitionInfoPage() {
                   >
                     SOLO SCHEDULE <span aria-hidden="true">→</span>
                   </a>
-                </p>
+                </div>
                 <p className="flex-auto font-bold">
                   Team competition - Saturday, Dec 16th
                 </p>
@@ -129,7 +129,7 @@ export default function CompetitionInfoPage() {
                     <span aria-hidden="true">→</span>
                   </a>
                 </p>
-                <p className="mt-3 flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                <p className="mt-3 flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                   Ticket Prices are $10.00 for all ages.  A service fee is added
                   to all digital ticketing.
                 </p>
@@ -139,13 +139,13 @@ export default function CompetitionInfoPage() {
         </div>
 
         <div className="w-full md:w-1/2">
-          <div className="h-full rounded-md border border-gray-300 bg-gray-100 p-6">
+          <div className="h-full rounded-md border border-gray-300 bg-primary-foreground p-6">
             <div className="mb-4"></div>
             <div className="flex flex-col">
-              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                 Bountiful Invitational at Bountiful High School
               </dt>
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-primary">
                 <p className="flex-auto">Solo competition - Friday, Jan 5th</p>
                 <p className="flex-auto font-bold">
                   Team competition - Saturday, Jan 6th @ 3:30pm
@@ -156,8 +156,8 @@ export default function CompetitionInfoPage() {
                   <li>Show - 7:00pm</li>
                   <li>Drill Down & Awards - 7:30pm</li>
                 </ul>
-                <p className="mt-6">
-                  <p className="mt-3 flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                <div className="mt-6">
+                  <p className="mt-3 flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                     Schedule will be posted here as soon as we get it. Tickets
                     for this competition will be done on the GoFan app, so
                     download that soon because tickets will go on sale shortly.
@@ -170,7 +170,7 @@ export default function CompetitionInfoPage() {
                     Register for Bountiful Invitational{" "}
                     <span aria-hidden="true">→</span>
                   </a>
-                </p>
+                </div>
                 <p className="">
                   <a
                     target="_blank"
@@ -187,13 +187,13 @@ export default function CompetitionInfoPage() {
         </div>
 
         <div className="w-full md:w-1/2">
-          <div className="h-full rounded-md border border-gray-300 bg-gray-100 p-6">
+          <div className="h-full rounded-md border border-gray-300 bg-primary-foreground p-6">
             <div className="mb-4"></div>
             <div className="flex flex-col">
-              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                 Region
               </dt>
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-primary">
                 <p className="flex-auto">
                   <b>Wednesday, January 17th 4:00pm</b> at American Fork High
                   School
@@ -210,13 +210,13 @@ export default function CompetitionInfoPage() {
         </div>
 
         <div className="w-full md:w-1/2">
-          <div className="h-full rounded-md border-gray-300 bg-gray-100 p-6 md:border">
+          <div className="h-full rounded-md border-gray-300 bg-primary-foreground p-6 md:border">
             <div className="mb-4"></div>
             <div className="flex flex-col">
-              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                 State Quarter-Finals
               </dt>
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-primary">
                 <p className="flex-auto">January 30th at UVU</p>
                 <p className="flex-auto">More info to come...</p>
               </dd>
@@ -225,13 +225,13 @@ export default function CompetitionInfoPage() {
         </div>
 
         <div className="w-full md:w-1/2">
-          <div className="h-full rounded-md border border-gray-300 bg-gray-100 p-6">
+          <div className="h-full rounded-md border border-gray-300 bg-primary-foreground p-6">
             <div className="mb-4"></div>
             <div className="flex flex-col">
-              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                 State Semi-Finals
               </dt>
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-primary">
                 <p className="flex-auto">February 1st at UVU</p>
                 <p className="flex-auto">More info to come...</p>
               </dd>
@@ -239,13 +239,13 @@ export default function CompetitionInfoPage() {
           </div>
         </div>
         <div className="w-full md:w-1/2">
-          <div className="h-full rounded-md border border-gray-300 bg-gray-100 p-6">
+          <div className="h-full rounded-md border border-gray-300 bg-primary-foreground p-6">
             <div className="mb-4"></div>
             <div className="flex flex-col">
-              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                 State Finals
               </dt>
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-primary">
                 <p className="flex-auto">February 2nd at UVU</p>
                 <p className="flex-auto">More info to come...</p>
               </dd>
@@ -253,13 +253,13 @@ export default function CompetitionInfoPage() {
           </div>
         </div>
         <div className="w-full md:w-1/2">
-          <div className="h-full rounded-md border border-gray-300 bg-gray-100 p-6">
+          <div className="h-full rounded-md border border-gray-300 bg-primary-foreground p-6">
             <div className="mb-4"></div>
             <div className="flex flex-col">
-              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">
                 Nationals
               </dt>
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-primary">
                 <p className="flex-auto">February 8-11th in Orlando, FL</p>
                 <p className="flex-auto">More info to come...</p>
               </dd>

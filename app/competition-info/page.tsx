@@ -62,7 +62,7 @@ export default function CompetitionInfoPage() {
         </div>
 
         <div className="w-full md:w-1/2">
-          <div className="h-full rounded-md border border-gray-300 bg-primary-foreground p-6 md:border">
+          <div className="h-full rounded-md border border-gray-400 bg-primary-foreground p-6 md:border">
             <div className="mb-4"></div>
             <div className="flex flex-col">
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-primary">

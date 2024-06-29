@@ -33,7 +33,6 @@ export default function CompetitionInfoPage() {
                 <div className="mt-6">
                   <p>
                     <a
-                      target="_blank"
                       href="https://gofan.co/event/1214913?schoolId=UT86863&utm_source=GoFan&utm_medium=qrcode&utm_campaign=HQEventLink"
                       className="text-sm font-semibold leading-6 text-primary"
                     >
@@ -43,7 +42,6 @@ export default function CompetitionInfoPage() {
                   </p>
                   <p>
                     <a
-                      target="_blank"
                       href="https://gofan.co/event/1179901?schoolId=UT86863&utm_source=GoFan&utm_medium=qrcode&utm_campaign=HQEventLink"
                       className="text-sm font-semibold leading-6 text-primary"
                     >
@@ -78,7 +76,6 @@ export default function CompetitionInfoPage() {
                 </ul>
                 <div>
                   <a
-                    target="_blank"
                     href="https://docs.google.com/spreadsheets/d/1vaFqwDtl723XjR-jCnY6oPuuBF3q5dbc_TWV3sEAePo/edit#gid=0"
                     className="text-sm font-semibold leading-6 text-primary"
                   >
@@ -96,7 +93,6 @@ export default function CompetitionInfoPage() {
                 </ul>
                 <p>
                   <a
-                    target="_blank"
                     href="https://docs.google.com/spreadsheets/d/14xQLVcY2QwSGE0oPvwLrpAqCMjweFzXnSdRNoBAU_P0/edit#gid=0"
                     className="text-sm font-semibold leading-6 text-primary"
                   >
@@ -111,7 +107,6 @@ export default function CompetitionInfoPage() {
 
                 <p className="mt-5">
                   <a
-                    target="_blank"
                     href="https://bit.ly/46v3sIc"
                     className="text-sm font-semibold leading-6 text-primary"
                   >
@@ -121,7 +116,6 @@ export default function CompetitionInfoPage() {
                 </p>
                 <p>
                   <a
-                    target="_blank"
                     href="https://bit.ly/49YUJRC "
                     className="text-sm font-semibold leading-6 text-primary"
                   >
@@ -163,7 +157,6 @@ export default function CompetitionInfoPage() {
                     download that soon because tickets will go on sale shortly.
                   </p>
                   <a
-                    target="_blank"
                     href="https://docs.google.com/forms/d/e/1FAIpQLSd8TwWjjCe37VBfkwAacob3L2gRW11tNp1_SE-AJkXyiWypAw/viewform"
                     className="mt-5 text-sm font-semibold leading-6 text-primary"
                   >
@@ -173,7 +166,6 @@ export default function CompetitionInfoPage() {
                 </div>
                 <p className="">
                   <a
-                    target="_blank"
                     href="https://dsdgive.net/event/3483"
                     className="text-sm font-semibold leading-6 text-primary"
                   >

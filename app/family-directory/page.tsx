@@ -209,7 +209,7 @@ const families = [
 export default function DialogDemo() {
   return (
     <div>
-      <div className="grid grid-cols-4 items-center gap-4 p-4">
+      <div className="grid grid-cols-4 items-center gap-5 p-5">
         {families.map((family) => (
           <div key={family.family}>
             <Dialog>

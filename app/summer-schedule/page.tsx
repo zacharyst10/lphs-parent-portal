@@ -1,15 +1,11 @@
 import React from "react";
 
-interface AuditionEvent {
+type AuditionEvent = {
   title: string;
   details: string[];
-}
+};
 
-interface AuditionsScheduleProps {
-  events?: AuditionEvent[];
-}
-
-export default function AuditionsSchedule({ events }: AuditionsScheduleProps) {
+export default function AuditionsSchedule() {
   const defaultEvents: AuditionEvent[] = [
     {
       title: "Mandatory Parent Meeting",
@@ -49,7 +45,6 @@ export default function AuditionsSchedule({ events }: AuditionsScheduleProps) {
             Auditions
           </p>
         </div>
-
         <div className="mx-auto mb-20 mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
             {defaultEvents.map((event, index) => (

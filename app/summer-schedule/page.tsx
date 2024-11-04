@@ -9,7 +9,7 @@ interface AuditionsScheduleProps {
   events?: AuditionEvent[];
 }
 
-function AuditionsSchedule({ events }: AuditionsScheduleProps) {
+export default function AuditionsSchedule({ events }: AuditionsScheduleProps) {
   const defaultEvents: AuditionEvent[] = [
     {
       title: "Mandatory Parent Meeting",
@@ -75,5 +75,3 @@ function AuditionsSchedule({ events }: AuditionsScheduleProps) {
     </div>
   );
 }
-
-export default AuditionsSchedule;

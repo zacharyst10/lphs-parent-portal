@@ -14,7 +14,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-// Import statements for family images
 import allan from "@/public/families/allan-family.jpg";
 import allen from "@/public/families/allen-family.jpg";
 import arnold from "@/public/families/arnold-family.jpg";
@@ -22,22 +21,24 @@ import cormier from "@/public/families/cormier-family.jpg";
 import dahl from "@/public/families/dahl-family.jpg";
 import esplin from "@/public/families/esplin-family.jpg";
 import green from "@/public/families/green-family.jpg";
-import harrison from "@/public/families/harrison-family.jpg";
 import hilton from "@/public/families/hilton-family.jpg";
 import jones from "@/public/families/jones-family.jpg";
 import krog from "@/public/families/krog-family.jpg";
-import lebaron from "@/public/families/lebaron-family.jpg";
 import leroy from "@/public/families/leroy-family.jpg";
 import lopez from "@/public/families/lopez-family.jpg";
 import maughan from "@/public/families/maughan-family.jpg";
-import mccracken from "@/public/families/mcckraken-family.jpg";
-import paskett from "@/public/families/paskett-family.jpg";
 import smithB from "@/public/families/smith-b-family.jpg";
 import smith from "@/public/families/smith-family.jpg";
-import sonntag from "@/public/families/sonntag-family.jpg";
 import taylor from "@/public/families/taylor-family.jpg";
 import wallace from "@/public/families/wallace-family.jpg";
 import ward from "@/public/families/ward-family.png";
+import earnshaw from "@/public/families/earnshaw-family.jpg";
+import liechty from "@/public/families/liechty-family.jpg";
+import nicol from "@/public/families/nicol-family.jpg";
+import owens from "@/public/families/owens-family.jpg";
+import pearson from "@/public/families/pearson-family.jpg";
+import shaw from "@/public/families/shaw-family.jpg";
+import zurcher from "@/public/families/zurcher-family.jpg";
 
 const families = [
   {
@@ -81,6 +82,15 @@ const families = [
     image: dahl,
   },
   {
+    id: "earnshaw",
+    family: "Earnshaw Family",
+    mom: "",
+    dad: "",
+    dancer: "Avonlea Earnshaw",
+    image: earnshaw,
+  },
+
+  {
     id: "esplin",
     family: "Esplin Family",
     mom: "Shannon Esplin",
@@ -95,14 +105,6 @@ const families = [
     dad: "Jeremy Green",
     dancer: "Aiden Green",
     image: green,
-  },
-  {
-    id: "harrison",
-    family: "Harrison Family",
-    mom: "Toni Harrison",
-    dad: "Mason Harrison",
-    dancer: "Ellie & Brynlee Harrison",
-    image: harrison,
   },
   {
     id: "hilton",
@@ -128,14 +130,7 @@ const families = [
     dancer: "Katie Krog",
     image: krog,
   },
-  {
-    id: "lebaron",
-    family: "LeBaron Family",
-    mom: "Sarah LeBaron",
-    dad: "Mike LeBaron",
-    dancer: "Bella LeBaron",
-    image: lebaron,
-  },
+
   {
     id: "leroy",
     family: "LeRoy Family",
@@ -144,6 +139,15 @@ const families = [
     dancer: "Gwen LeRoy",
     image: leroy,
   },
+  {
+    id: "liechty",
+    family: "Liechty Family",
+    mom: "",
+    dad: "",
+    dancer: "Hannah  Liechty",
+    image: liechty,
+  },
+
   {
     id: "lopez",
     family: "Lopez Family",
@@ -161,20 +165,36 @@ const families = [
     image: maughan,
   },
   {
-    id: "mccracken",
-    family: "McCracken Family",
-    mom: "Liana McCracken",
-    dad: "Miles McCracken",
-    dancer: "Camille McCracken",
-    image: mccracken,
+    id: "nicol",
+    family: "Nicol Family",
+    mom: "",
+    dad: "",
+    dancer: "Chloe Nicol",
+    image: nicol,
   },
   {
-    id: "paskett",
-    family: "Paskett Family",
-    mom: "Shelley Paskett",
-    dad: "John Paskett",
-    dancer: "Emma Paskett",
-    image: paskett,
+    id: "owens",
+    family: "Owens Family",
+    mom: "",
+    dad: "",
+    dancer: "Hadlee Owens",
+    image: owens,
+  },
+  {
+    id: "pearson",
+    family: "Pearson Family",
+    mom: "",
+    dad: "",
+    dancer: "Kambri  Pearson",
+    image: pearson,
+  },
+  {
+    id: "shaw",
+    family: "Shaw Family",
+    mom: "",
+    dad: "",
+    dancer: "Lily Shaw",
+    image: shaw,
   },
   {
     id: "smith-b",
@@ -186,20 +206,13 @@ const families = [
   },
   {
     id: "smith-t",
-    family: "Smith Family (Tessa)",
+    family: "Smith Family (Tessa + Mollie)",
     mom: "Lynsie Smith",
     dad: "Nathan Smith",
-    dancer: "Tessa Smith",
+    dancer: "Tessa + Mollie Smith",
     image: smith,
   },
-  {
-    id: "mcquivey",
-    family: "McQuivey Family",
-    mom: "Pollina McQuivey",
-    dad: "Ryan McQuivey",
-    dancer: "Kaitlyn Sonntag",
-    image: sonntag,
-  },
+
   {
     id: "taylor",
     family: "Taylor Family",
@@ -223,6 +236,14 @@ const families = [
     dad: "Jon Ward",
     dancer: "Kate & Sophie Ward",
     image: ward,
+  },
+  {
+    id: "zurcher",
+    family: "Zurcher Family",
+    mom: "",
+    dad: "",
+    dancer: "Katie Zurcher",
+    image: zurcher,
   },
 ];
 
@@ -286,8 +307,7 @@ export default function FamilyGallery() {
                       <span className="font-semibold">Dad:</span> {family.dad}
                     </p>
                     <p>
-                      <span className="font-semibold">Mom:</span>{" "}
-                      {family.mom || "N/A"}
+                      <span className="font-semibold">Mom:</span> {family.mom}
                     </p>
                     <p>
                       <span className="font-semibold">Dancer:</span>{" "}

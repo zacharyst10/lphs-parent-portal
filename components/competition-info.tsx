@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Users, User } from "lucide-react";
+import { Calendar, MapPin, Users, User, Ticket } from "lucide-react";
 import { parse, compareAsc } from "date-fns";
 
 interface Date {
@@ -26,6 +26,7 @@ interface Event {
   location?: string;
   details?: string;
   dates?: Date[];
+  ticketLink?: string;
 }
 
 export default function EventDashboard() {
@@ -35,6 +36,7 @@ export default function EventDashboard() {
       soloDate: "Friday, December 6th, 2024",
       soloRegisterLink: "https://form.jotform.com/61577363825161",
       teamDate: "Saturday, December 7th, 2024",
+      ticketLink: "https://buy.stripe.com/8wMcMN30S44jeDm288",
     },
     {
       title: "SUU Thunderbird Invitational",
@@ -129,6 +131,20 @@ export default function EventDashboard() {
                     <span className="font-semibold">Team Competition</span>
                   </div>
                   <div className="ml-6">{event.teamDate}</div>
+                </div>
+              )}
+              {event.ticketLink && (
+                <div className="mb-4">
+                  <Button asChild variant="link" className="p-0">
+                    <a
+                      href={event.ticketLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Ticket className="mr-2 h-5 w-5" />
+                      Purchase tickets
+                    </a>
+                  </Button>
                 </div>
               )}
               {event.date && (

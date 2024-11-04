@@ -1,17 +1,20 @@
 "use client";
+
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { useState, useMemo } from "react";
+import { Search } from "lucide-react";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+// Import statements for family images
 import allan from "@/public/families/allan-family.jpg";
 import allen from "@/public/families/allen-family.jpg";
 import arnold from "@/public/families/arnold-family.jpg";
@@ -35,11 +38,10 @@ import sonntag from "@/public/families/sonntag-family.jpg";
 import taylor from "@/public/families/taylor-family.jpg";
 import wallace from "@/public/families/wallace-family.jpg";
 import ward from "@/public/families/ward-family.png";
-import { Search } from "lucide-react";
-import { useState } from "react";
 
 const families = [
   {
+    id: "allan",
     family: "Allan Family",
     mom: "Jennifer Allan",
     dad: "Michael Allan",
@@ -47,6 +49,7 @@ const families = [
     image: allan,
   },
   {
+    id: "allen",
     family: "Allen Family",
     mom: "Kristin Allen",
     dad: "Brandon Allen",
@@ -54,14 +57,15 @@ const families = [
     image: allen,
   },
   {
+    id: "arnold",
     family: "Arnold Family",
     mom: "Mackenzie Arnold",
     dad: "Brig Arnold",
     dancer: "Cate Arnold",
     image: arnold,
   },
-
   {
+    id: "cormier",
     family: "Cormier Family",
     mom: "Sheryl Cormier",
     dad: "Lee Cormier",
@@ -69,6 +73,7 @@ const families = [
     image: cormier,
   },
   {
+    id: "dahl",
     family: "Dahl Family",
     mom: "Alicia Dahl",
     dad: "Eric Dahl",
@@ -76,6 +81,7 @@ const families = [
     image: dahl,
   },
   {
+    id: "esplin",
     family: "Esplin Family",
     mom: "Shannon Esplin",
     dad: "Jeff Esplin",
@@ -83,6 +89,7 @@ const families = [
     image: esplin,
   },
   {
+    id: "green",
     family: "Green Family",
     mom: "Aleece Green",
     dad: "Jeremy Green",
@@ -90,14 +97,15 @@ const families = [
     image: green,
   },
   {
+    id: "harrison",
     family: "Harrison Family",
     mom: "Toni Harrison",
     dad: "Mason Harrison",
     dancer: "Ellie & Brynlee Harrison",
     image: harrison,
   },
-
   {
+    id: "hilton",
     family: "Hilton Family",
     mom: "Alicia Hilton",
     dad: "Glen Hilton",
@@ -105,6 +113,7 @@ const families = [
     image: hilton,
   },
   {
+    id: "jones",
     family: "Jones Family",
     mom: "Melissa Jones",
     dad: "Brady Jones",
@@ -112,6 +121,7 @@ const families = [
     image: jones,
   },
   {
+    id: "krog",
     family: "Krog Family",
     mom: "Angie Krog",
     dad: "Mike Krog",
@@ -119,6 +129,7 @@ const families = [
     image: krog,
   },
   {
+    id: "lebaron",
     family: "LeBaron Family",
     mom: "Sarah LeBaron",
     dad: "Mike LeBaron",
@@ -126,6 +137,7 @@ const families = [
     image: lebaron,
   },
   {
+    id: "leroy",
     family: "LeRoy Family",
     mom: "Andrea LeRoy",
     dad: "Brandon LeRoy",
@@ -133,6 +145,7 @@ const families = [
     image: leroy,
   },
   {
+    id: "lopez",
     family: "Lopez Family",
     mom: "",
     dad: "Scott Lopez",
@@ -140,6 +153,7 @@ const families = [
     image: lopez,
   },
   {
+    id: "maughan",
     family: "Maughan Family",
     mom: "Nicole Maughan",
     dad: "Weston Maughan",
@@ -147,6 +161,7 @@ const families = [
     image: maughan,
   },
   {
+    id: "mccracken",
     family: "McCracken Family",
     mom: "Liana McCracken",
     dad: "Miles McCracken",
@@ -154,6 +169,7 @@ const families = [
     image: mccracken,
   },
   {
+    id: "paskett",
     family: "Paskett Family",
     mom: "Shelley Paskett",
     dad: "John Paskett",
@@ -161,29 +177,31 @@ const families = [
     image: paskett,
   },
   {
-    family: "Smith Family",
+    id: "smith-b",
+    family: "Smith Family (Brooklyn)",
     mom: "Lindsay Smith",
     dad: "Colton Smith",
     dancer: "Brooklyn Smith",
     image: smithB,
   },
   {
-    family: "Smith Family",
+    id: "smith-t",
+    family: "Smith Family (Tessa)",
     mom: "Lynsie Smith",
     dad: "Nathan Smith",
     dancer: "Tessa Smith",
     image: smith,
   },
-
   {
+    id: "mcquivey",
     family: "McQuivey Family",
     mom: "Pollina McQuivey",
     dad: "Ryan McQuivey",
     dancer: "Kaitlyn Sonntag",
     image: sonntag,
   },
-
   {
+    id: "taylor",
     family: "Taylor Family",
     mom: "Chandler Taylor",
     dad: "Chip Taylor",
@@ -191,6 +209,7 @@ const families = [
     image: taylor,
   },
   {
+    id: "wallace",
     family: "Wallace Family",
     mom: "Jennie Wallace",
     dad: "Landon Wallace",
@@ -198,6 +217,7 @@ const families = [
     image: wallace,
   },
   {
+    id: "ward",
     family: "Ward Family",
     mom: "Tara Ward",
     dad: "Jon Ward",
@@ -206,39 +226,78 @@ const families = [
   },
 ];
 
-export default function DialogDemo() {
+export default function FamilyGallery() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredFamilies = useMemo(() => {
+    return families.filter(
+      (family) =>
+        family.family.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        family.mom.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        family.dad.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        family.dancer.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
+  }, [searchTerm]);
+
   return (
-    <div>
-      <div className="grid grid-cols-4 items-center gap-5 p-5">
-        {families.map((family) => (
-          <div key={family.family}>
-            <Dialog>
-              <DialogTrigger asChild>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="mb-8 text-center text-3xl font-bold">Family Gallery</h1>
+      <div className="relative mb-6">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
+        <Input
+          type="text"
+          placeholder="Search families, parents, or dancers..."
+          className="w-full pl-10"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+      <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+        {filteredFamilies.map((family) => (
+          <Dialog key={family.id}>
+            <DialogTrigger asChild>
+              <div className="cursor-pointer transition-transform hover:scale-105">
                 <Image
                   src={family.image}
                   alt={family.family}
                   placeholder="blur"
-                  className="h-64 w-64 rounded-2xl object-cover"
+                  className="aspect-square rounded-lg object-cover"
                 />
-              </DialogTrigger>
-              <DialogContent className="">
-                <DialogHeader>
-                  <DialogTitle>{family.family}</DialogTitle>
-                  <DialogDescription className="flex flex-col gap-2">
-                    <div>{family.dad}</div>
-                    <div>{family.mom}</div>
-                    <div>{family.dancer}</div>
+                <p className="mt-2 text-center font-medium">{family.family}</p>
+              </div>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold">
+                  {family.family}
+                </DialogTitle>
+              </DialogHeader>
+              <div className="grid gap-4">
+                <div className="aspect-square overflow-hidden rounded-lg">
+                  <Image
+                    src={family.image}
+                    alt={family.family}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <ScrollArea className="h-[200px] rounded-md border p-4">
+                  <DialogDescription className="space-y-2 text-lg">
+                    <p>
+                      <span className="font-semibold">Dad:</span> {family.dad}
+                    </p>
+                    <p>
+                      <span className="font-semibold">Mom:</span>{" "}
+                      {family.mom || "N/A"}
+                    </p>
+                    <p>
+                      <span className="font-semibold">Dancer:</span>{" "}
+                      {family.dancer}
+                    </p>
                   </DialogDescription>
-                </DialogHeader>
-
-                <Image
-                  className="h-full w-full"
-                  src={family.image}
-                  alt={family.family}
-                />
-              </DialogContent>
-            </Dialog>
-          </div>
+                </ScrollArea>
+              </div>
+            </DialogContent>
+          </Dialog>
         ))}
       </div>
     </div>

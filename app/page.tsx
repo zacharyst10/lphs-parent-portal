@@ -1,6 +1,9 @@
 import { Suspense } from "react";
+import { currentUser } from "@clerk/nextjs/server";
 
-export default function Home() {
+export default async function Home() {
+  const user: any = await currentUser();
+  if (!user) return;
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="flex h-screen flex-col items-center justify-center">

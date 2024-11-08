@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
-import {
-  ClerkProvider,
-  SignedOut,
-  SignedIn,
-  SignIn,
-  SignInButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Dashboard } from "@/components/dashboard";
-import { SignInCard } from "@/components/sign-in-card";
-import { dark } from "@clerk/themes";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -24,7 +16,7 @@ export const metadata: Metadata = {
   description: "A parent portal for the LPHS Chevalier",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -44,16 +36,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <SignedOut>
-              <div className="flex h-screen flex-col items-center justify-center">
-                <SignInCard />
-              </div>
-            </SignedOut>
-            <SignedIn>
-              <main>
-                <Dashboard children={children} />
-              </main>
-            </SignedIn>
+            <main>
+              <Dashboard children={children} />
+            </main>
           </ThemeProvider>
         </body>
       </html>
